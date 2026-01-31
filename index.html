@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Consultoría de Incoterms, Aduanas y Logística para E‑commerce</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --petroleo: #0b3c4d;
+      --petroleo-oscuro: #06232d;
+      --gris: #d0d4da;
+      --gris-oscuro: #3b3f46;
+      --negro: #050608;
+      --blanco: #ffffff;
+      --acento: #00b3c6;
+      --error: #e74c3c;
+      --ok: #27ae60;
+      --radius: 10px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #0f4f63 0, #02060a 55%, #000000 100%);
+      color: var(--blanco);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 40px 16px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      background: linear-gradient(135deg, rgba(5, 12, 18, 0.96), rgba(6, 35, 45, 0.98));
+      border-radius: 24px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 32px 24px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(0, 179, 198, 0.18) 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.06) 0, transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      margin-bottom: 32px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 24px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo-mark {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      background: radial-gradient(circle at 20% 0%, #00b3c6 0, #06232d 40%, #000000 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--blanco);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      font-size: 14px;
+      text-transform: uppercase;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .brand-text h1 {
+      font-size: 1.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gris);
+    }
+
+    .brand-text span {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .tagline {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 420px;
+      text-align: right;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 24px;
+      margin-top: 8px;
+    }
+
+    .intro-main-title {
+      font-size: 1.9rem;
+      line-height: 1.25;
+      font-weight: 600;
+    }
+
+    .intro-main-title span {
+      color: var(--acento);
+    }
+
+    .intro-subtitle {
+      margin-top: 10px;
+      font-size: 0.98rem;
+      color: rgba(255, 255, 255, 0.78);
+      max-width: 520px;
+    }
+
+    .intro-pill {
+      background: rgba(11, 60, 77, 0.7);
+      border-radius: 999px;
+      padding: 10px 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.8rem;
+      color: var(--gris);
+      margin-bottom: 10px;
+    }
+
+    .intro-pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--acento);
+      box-shadow: 0 0 12px rgba(0, 179, 198, 0.9);
+    }
+
+    .intro-card {
+      background: radial-gradient(circle at top, rgba(0, 179, 198, 0.16) 0, rgba(5, 12, 18, 0.96) 55%);
+      border-radius: 18px;
+      padding: 16px 18px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .intro-card-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .intro-card-metric {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+    }
+
+    .intro-card-metric strong {
+      font-size: 1.6rem;
+      color: var(--acento);
+    }
+
+    .intro-card-metric span {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.7);
+      max-width: 180px;
+      text-align: right;
+    }
+
+    .intro-card-list {
+      margin-top: 4px;
+      list-style: none;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .intro-card-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .intro-card-bullet {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    main {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 24px;
+    }
+
+    .quiz-section {
+      background: rgba(5, 12, 18, 0.9);
+      border-radius: 18px;
+      padding: 20px 18px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .quiz-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .quiz-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .quiz-badge {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(255, 255, 255, 0.7);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .quiz-badge span {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--acento);
+      box-shadow: 0 0 10px rgba(0, 179, 198, 0.9);
+    }
+
+    .quiz-progress {
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+
+    .quiz-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #00b3c6, #27ae60);
+      transition: width 0.25s ease-out;
+    }
+
+    .question-counter {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 8px;
+    }
+
+    .question-text {
+      font-size: 0.98rem;
+      margin-bottom: 12px;
+    }
+
+    .options {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .option {
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      padding: 9px 12px;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      background: rgba(11, 60, 77, 0.35);
+      transition: all 0.18s ease-out;
+    }
+
+    .option-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .option-dot::after {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      border-radius: 50%;
+      background: transparent;
+      transition: background 0.18s ease-out;
+    }
+
+    .option:hover {
+      border-color: rgba(0, 179, 198, 0.7);
+      background: rgba(11, 60, 77, 0.7);
+      transform: translateY(-1px);
+    }
+
+    .option.selected {
+      border-color: var(--acento);
+      background: rgba(0, 179, 198, 0.12);
+    }
+
+    .option.selected .option-dot {
+      border-color: var(--acento);
+    }
+
+    .option.selected .option-dot::after {
+      background: var(--acento);
+    }
+
+    .quiz-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-top: 4px;
+    }
+
+    .quiz-hint {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.6);
+      max-width: 260px;
+    }
+
+    .btn {
+      border-radius: 999px;
+      border: none;
+      padding: 9px 18px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.18s ease-out;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #00b3c6, #0b3c4d);
+      color: var(--blanco);
+      box-shadow: 0 10px 24px rgba(0, 179, 198, 0.45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(0, 179, 198, 0.6);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: rgba(255, 255, 255, 0.8);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .results-section {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .results-score {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+
+    .results-score span {
+      color: var(--acento);
+    }
+
+    .results-tag {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .results-message {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .results-cta {
+      margin-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .results-cta strong {
+      font-size: 0.9rem;
+    }
+
+    .results-cta small {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .results-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(11, 60, 77, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      margin-top: 4px;
+    }
+
+    .results-badge span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .results-badge span.ok {
+      background: var(--ok);
+      box-shadow: 0 0 10px rgba(39, 174, 96, 0.9);
+    }
+
+    .results-badge span.risk {
+      background: var(--error);
+      box-shadow: 0 0 10px rgba(231, 76, 60, 0.9);
+    }
+
+    .side-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .side-card {
+      background: rgba(5, 12, 18, 0.9);
+      border-radius: 18px;
+      padding: 16px 16px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .side-card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+
+    .side-card p {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .side-list {
+      list-style: none;
+      margin-top: 6px;
+      font-size: 0.84rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .side-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .side-list-icon {
+      width: 14px;
+      height: 14px;
+      border-radius: 4px;
+      background: rgba(0, 179, 198, 0.16);
+      border: 1px solid rgba(0, 179, 198, 0.7);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .contact-chip {
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.8);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px dashed rgba(255, 255, 255, 0.3);
+    }
+
+    .contact-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--acento);
+      box-shadow: 0 0 10px rgba(0, 179, 198, 0.9);
+    }
+
+    .contact-link {
+      color: var(--acento);
+      text-decoration: none;
+      border-bottom: 1px dotted rgba(0, 179, 198, 0.7);
+      padding-bottom: 1px;
+    }
+
+    .contact-link:hover {
+      opacity: 0.85;
+    }
+
+    .risk-highlight {
+      color: var(--error);
+      font-weight: 500;
+    }
+
+    .neutral-highlight {
+      color: var(--gris);
+    }
+
+    .success-highlight {
+      color: var(--ok);
+      font-weight: 500;
+    }
+
+    @media (max-width: 880px) {
+      header {
+        gap: 12px;
+      }
+
+      .brand-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .tagline {
+        text-align: left;
+        max-width: none;
+      }
+
+      .intro-grid,
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .quiz-footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      body {
+        padding: 24px 12px;
+      }
+
+      .container {
+        padding: 24px 18px 28px;
+      }
+    }
+/* --- OPTIMIZACIÓN MÓVIL REAL --- */
+@media (max-width: 600px) {
+
+  body {
+    padding: 0;
+    background: #000;
+  }
+
+  .container {
+    border-radius: 0;
+    padding: 18px 14px 30px;
+    box-shadow: none;
+  }
+
+  header {
+    padding-bottom: 10px;
+    margin-bottom: 18px;
+  }
+
+  .brand-row {
+    gap: 10px;
+  }
+
+  .brand-text h1 {
+    font-size: 1.2rem;
+  }
+
+  .brand-text span {
+    font-size: 0.75rem;
+  }
+
+  .tagline {
+    font-size: 0.8rem;
+    max-width: none;
+  }
+
+  .intro-main-title {
+    font-size: 1.4rem;
+  }
+
+  .intro-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .intro-card {
+    padding: 12px;
+  }
+
+  .intro-card-metric strong {
+    font-size: 1.2rem;
+  }
+
+  /* --- QUIZ --- */
+  .quiz-section {
+    padding: 16px 14px;
+  }
+
+  .quiz-title {
+    font-size: 1rem;
+  }
+
+  .question-text {
+    font-size: 0.9rem;
+  }
+
+  .option {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+
+  .quiz-footer {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+    font-size: 1rem;
+  }
+
+  /* --- RESULTADOS --- */
+  .results-score {
+    font-size: 1.2rem;
+  }
+
+  .results-message {
+    font-size: 0.85rem;
+  }
+
+  /* --- PANEL LATERAL (se vuelve compacto) --- */
+  .side-card {
+    padding: 14px;
+  }
+
+  .side-card h3 {
+    font-size: 0.9rem;
+  }
+
+  .side-card p,
+  .side-list {
+    font-size: 0.8rem;
+  }
+
+  .contact-chip {
+    font-size: 0.75rem;
+    padding: 6px 8px;
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand-row">
+        <div style="display:flex;align-items:center;gap:14px;">
+          <div class="logo-mark">INC</div>
+          <div class="brand-text">
+            <h1>Consultoría Estratégica</h1>
+            <span>Incoterms · Aduanas · Logística E‑commerce</span>
+          </div>
+        </div>
+        <p class="tagline">
+          Reducimos tu riesgo operativo y fiscal en comercio internacional mientras escalas tu e‑commerce con seguridad.
+        </p>
+      </div>
+
+      <div class="intro-grid">
+        <div>
+          <div class="intro-pill">
+            <div class="intro-pill-dot"></div>
+            <span>Diagnóstico interactivo en menos de 3 minutos</span>
+          </div>
+          <h2 class="intro-main-title">
+            ¿Tu e‑commerce está realmente <span>protegido</span> en Incoterms, aduanas y logística?
+          </h2>
+          <p class="intro-subtitle">
+            Hemos diseñado un cuestionario rápido para medir tu nivel real en Incoterms, gestión aduanera y logística
+            internacional aplicada al e‑commerce. Al final verás tu riesgo y si necesitas una consultoría personalizada.
+          </p>
+        </div>
+
+        <div class="intro-card">
+          <div class="intro-card-title">Qué hacemos</div>
+          <div class="intro-card-metric">
+            <strong>+30%</strong>
+            <span>de mejora media en margen por pedido internacional tras optimizar Incoterms y costes ocultos.</span>
+          </div>
+          <ul class="intro-card-list">
+            <li>
+              <div class="intro-card-bullet"></div>
+              <span>Diseño de estrategia de Incoterms alineada con tu modelo de negocio.</span>
+            </li>
+            <li>
+              <div class="intro-card-bullet"></div>
+              <span>Revisión de riesgos aduaneros, sanciones y bloqueos de mercancía.</span>
+            </li>
+            <li>
+              <div class="intro-card-bullet"></div>
+              <span>Optimización de logística internacional para envíos B2C y marketplaces.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- QUIZ -->
+      <section class="quiz-section" id="quiz-section">
+        <div class="quiz-header">
+          <div>
+            <div class="quiz-title">Cuestionario de riesgo en Incoterms y logística</div>
+            <div class="quiz-badge"><span></span> Nivel estimado en tiempo real</div>
+          </div>
+          <button class="btn btn-secondary" id="restart-btn" style="display:none;">Reiniciar test</button>
+        </div>
+
+        <div class="quiz-progress">
+          <div class="quiz-progress-bar" id="progress-bar"></div>
+        </div>
+
+        <div id="quiz-content">
+          <div class="question-counter" id="question-counter"></div>
+          <div class="question-text" id="question-text"></div>
+          <ul class="options" id="options-list"></ul>
+        </div>
+
+        <div class="results-section" id="results-section">
+          <div class="results-tag">Resultado de tu diagnóstico</div>
+          <div class="results-score" id="results-score"></div>
+          <p class="results-message" id="results-message"></p>
+
+          <div class="results-cta" id="results-cta"></div>
+        </div>
+
+        <div class="quiz-footer">
+          <p class="quiz-hint" id="quiz-hint">
+            Responde con sinceridad: el objetivo es detectar riesgos reales en tu operativa internacional.
+          </p>
+          <button class="btn btn-primary" id="next-btn">
+            Siguiente
+            <span>➜</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- SIDE PANEL -->
+      <aside class="side-panel">
+        <div class="side-card">
+          <h3>¿Quiénes somos?</h3>
+          <p>
+            Somos un equipo especializado en comercio internacional, aduanas y logística para e‑commerce. Traducimos
+            la complejidad normativa en decisiones claras, rentables y aplicadas a tu operativa diaria.
+          </p>
+          <ul class="side-list">
+            <li>
+              <div class="side-list-icon"></div>
+              <span>Experiencia en proyectos con tiendas online, marcas D2C y vendedores en marketplaces.</span>
+            </li>
+            <li>
+              <div class="side-list-icon"></div>
+              <span>Enfoque práctico: Incoterms, aranceles, IVA, operadores logísticos y documentación.</span>
+            </li>
+            <li>
+              <div class="side-list-icon"></div>
+              <span>Consultorías puntuales o acompañamiento continuo según tu volumen y mercados objetivo.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="side-card">
+          <h3>Reserva una consultoría</h3>
+          <p>
+            Si tu resultado muestra un nivel de riesgo medio o alto, te recomendamos una sesión estratégica donde
+            revisamos tu caso concreto y diseñamos un plan de acción.
+          </p>
+          <div class="contact-chip">
+            <div class="contact-dot"></div>
+            <span>
+              Escríbenos a
+              <a href="mailto:consultoria@tuecommerceglobal.com" class="contact-link">
+                consultoria@tuecommerceglobal.com
+              </a>
+              o agenda una llamada.
+            </span>
+          </div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script>
+    // --- Configuración del cuestionario ---
+const questions = [
+  {
+    text: "Cuando eliges un Incoterm para tus envíos internacionales B2C, ¿qué es lo que más tienes en cuenta?",
+    options: [
+      { text: "El que usa todo el mundo sin analizar más.", score: 0 },
+      { text: "El que me propone mi proveedor o transportista.", score: 1 },
+      { text: "Analizo riesgos, costes y puntos críticos.", score: 3 },
+      { text: "Tengo una matriz clara por producto y destino.", score: 4 }
+    ]
+  },
+  {
+    text: "Respecto a aduanas e impuestos, ¿cómo gestionas los aranceles?",
+    options: [
+      { text: "No lo tengo claro, el cliente se apaña.", score: 0 },
+      { text: "Depende del país, sin criterio definido.", score: 1 },
+      { text: "Identifico códigos arancelarios básicos.", score: 3 },
+      { text: "Trabajo con clasificación arancelaria y escenarios de IVA.", score: 4 }
+    ]
+  },
+  {
+    text: "Si un envío queda retenido en aduanas, ¿qué tan preparado estás?",
+    options: [
+      { text: "Me entero por quejas del cliente.", score: 0 },
+      { text: "Tengo un contacto, pero sin protocolo.", score: 1 },
+      { text: "Tengo un procedimiento básico documentado.", score: 3 },
+      { text: "Tengo protocolos claros y mensajes estándar.", score: 4 }
+    ]
+  },
+  {
+    text: "¿Cómo eliges tus operadores logísticos internacionales?",
+    options: [
+      { text: "Solo por precio.", score: 0 },
+      { text: "Precio y plazo, sin más análisis.", score: 1 },
+      { text: "Analizo fiabilidad, tracking y experiencia del cliente.", score: 3 },
+      { text: "Tengo estrategia por zonas, pesos y valor del pedido.", score: 4 }
+    ]
+  },
+  {
+    text: "¿Cómo informas al cliente sobre aduanas y posibles costes?",
+    options: [
+      { text: "No informo mucho para no asustar.", score: 0 },
+      { text: "Incluyo una nota genérica.", score: 1 },
+      { text: "Informo de forma clara y transparente.", score: 3 },
+      { text: "Tengo textos legales y FAQs adaptadas por país.", score: 4 }
+    ]
+  },
+  {
+    text: "¿Qué tan claro tienes el concepto de punto crítico de transferencia de riesgo en Incoterms?",
+    options: [
+      { text: "No lo tengo claro.", score: 0 },
+      { text: "Sé que existe, pero no lo aplico.", score: 1 },
+      { text: "Lo aplico en algunos casos.", score: 3 },
+      { text: "Lo uso estratégicamente en cada operación.", score: 4 }
+    ]
+  },
+  {
+    text: "¿Cómo gestionas la documentación internacional?",
+    options: [
+      { text: "La preparo cuando surge el problema.", score: 0 },
+      { text: "Tengo plantillas básicas.", score: 1 },
+      { text: "Tengo documentación estándar por tipo de envío.", score: 3 },
+      { text: "Tengo un sistema completo y automatizado.", score: 4 }
+    ]
+  },
+  {
+    text: "¿Conoces la diferencia entre DDP y DAP aplicada al e‑commerce?",
+    options: [
+      { text: "No.", score: 0 },
+      { text: "Más o menos.", score: 1 },
+      { text: "Sí, y la aplico según destino.", score: 3 },
+      { text: "Sí, y tengo reglas claras por país y producto.", score: 4 }
+    ]
+  },
+  {
+    text: "¿Cómo gestionas devoluciones internacionales?",
+    options: [
+      { text: "No tengo un sistema claro.", score: 0 },
+      { text: "Depende del caso.", score: 1 },
+      { text: "Tengo un proceso definido.", score: 3 },
+      { text: "Tengo un sistema optimizado y automatizado.", score: 4 }
+    ]
+  },
+  {
+    text: "¿Tienes identificados los países con mayor riesgo aduanero para tu producto?",
+    options: [
+      { text: "No.", score: 0 },
+      { text: "Tengo una idea general.", score: 1 },
+      { text: "Tengo una lista básica.", score: 3 },
+      { text: "Tengo un mapa de riesgo completo y actualizado.", score: 4 }
+    ]
+  },
+  {
+    text: "¿Cómo gestionas el cálculo de costes totales por envío internacional?",
+    options: [
+      { text: "Solo miro el coste del transportista.", score: 0 },
+      { text: "Incluyo algunos costes adicionales.", score: 1 },
+      { text: "Calculo costes totales estimados.", score: 3 },
+      { text: "Tengo un modelo completo de costes por país.", score: 4 }
+    ]
+  },
+  {
+    text: "¿Qué tan claro tienes el concepto de valor en aduana?",
+    options: [
+      { text: "No lo conozco.", score: 0 },
+      { text: "Sé que existe, pero no lo aplico.", score: 1 },
+      { text: "Lo aplico en la mayoría de casos.", score: 3 },
+      { text: "Lo aplico siempre y lo tengo documentado.", score: 4 }
+    ]
+  },
+  {
+    text: "¿Cómo gestionas el etiquetado y requisitos específicos por país?",
+    options: [
+      { text: "No lo gestiono.", score: 0 },
+      { text: "Lo reviso cuando surge un problema.", score: 1 },
+      { text: "Tengo una guía básica por país.", score: 3 },
+      { text: "Tengo un sistema completo de cumplimiento internacional.", score: 4 }
+    ]
+  },
+  {
+    text: "¿Tienes identificados tus HS Codes principales?",
+    options: [
+      { text: "No.", score: 0 },
+      { text: "Tengo algunos, pero no confirmados.", score: 1 },
+      { text: "Tengo los principales identificados.", score: 3 },
+      { text: "Tengo todos confirmados y documentados.", score: 4 }
+    ]
+  },
+  {
+    text: "¿Cómo gestionas la trazabilidad de tus envíos internacionales?",
+    options: [
+      { text: "Dependo del tracking básico del transportista.", score: 0 },
+      { text: "Uso varias plataformas según el caso.", score: 1 },
+      { text: "Tengo un sistema centralizado de seguimiento.", score: 3 },
+      { text: "Tengo trazabilidad completa integrada con atención al cliente.", score: 4 }
+    ]
+  }
+];
+
+    // --- Estado ---
+    let currentQuestionIndex = 0;
+    let selectedOptionIndex = null;
+    let scores = [];
+
+    // --- Elementos del DOM ---
+    const questionCounterEl = document.getElementById("question-counter");
+    const questionTextEl = document.getElementById("question-text");
+    const optionsListEl = document.getElementById("options-list");
+    const progressBarEl = document.getElementById("progress-bar");
+    const nextBtn = document.getElementById("next-btn");
+    const restartBtn = document.getElementById("restart-btn");
+    const quizHintEl = document.getElementById("quiz-hint");
+
+    const resultsSectionEl = document.getElementById("results-section");
+    const resultsScoreEl = document.getElementById("results-score");
+    const resultsMessageEl = document.getElementById("results-message");
+    const resultsCtaEl = document.getElementById("results-cta");
+    const quizContentEl = document.getElementById("quiz-content");
+
+    // --- Funciones ---
+    function renderQuestion() {
+      const q = questions[currentQuestionIndex];
+      selectedOptionIndex = null;
+
+      questionCounterEl.textContent = `Pregunta ${currentQuestionIndex + 1} de ${questions.length}`;
+      questionTextEl.textContent = q.text;
+
+      optionsListEl.innerHTML = "";
+      q.options.forEach((opt, index) => {
+        const li = document.createElement("li");
+        li.className = "option";
+        li.innerHTML = `
+          <div class="option-dot"></div>
+          <span>${opt.text}</span>
+        `;
+        li.addEventListener("click", () => selectOption(index));
+        optionsListEl.appendChild(li);
+      });
+
+      updateProgress();
+      updateHint();
+      nextBtn.textContent = currentQuestionIndex === questions.length - 1 ? "Ver resultado" : "Siguiente";
+      nextBtn.disabled = false;
+    }
+
+    function selectOption(index) {
+      selectedOptionIndex = index;
+      const optionEls = document.querySelectorAll(".option");
+      optionEls.forEach((el, i) => {
+        el.classList.toggle("selected", i === index);
+      });
+    }
+
+    function updateProgress() {
+      const progress = (currentQuestionIndex / questions.length) * 100;
+      progressBarEl.style.width = `${progress}%`;
+    }
+
+    function updateHint() {
+      if (currentQuestionIndex === 0) {
+        quizHintEl.textContent =
+          "Piensa en cómo decides hoy tus Incoterms, no en cómo te gustaría decidirlos.";
+      } else if (currentQuestionIndex === 1) {
+        quizHintEl.textContent =
+          "La claridad fiscal y aduanera evita sorpresas de coste y bloqueos de mercancía.";
+      } else if (currentQuestionIndex === 2) {
+        quizHintEl.textContent =
+          "Un envío retenido sin protocolo puede convertirse en una crisis de reputación.";
+      } else if (currentQuestionIndex === 3) {
+        quizHintEl.textContent =
+          "La logística internacional es una palanca de margen, no solo un coste.";
+      } else {
+        quizHintEl.textContent =
+          "La forma en que informas al cliente define su percepción de profesionalidad y confianza.";
+      }
+    }
+
+    function showResults() {
+      const maxScore = questions.length * 4;
+      const totalScore = scores.reduce((a, b) => a + b, 0);
+      const percentage = Math.round((totalScore / maxScore) * 100);
+
+      quizContentEl.style.display = "none";
+      resultsSectionEl.style.display = "flex";
+      restartBtn.style.display = "inline-flex";
+      nextBtn.style.display = "none";
+      progressBarEl.style.width = "100%";
+      quizHintEl.textContent =
+        "Este resultado es una foto rápida de tu riesgo actual. La acción está en lo que hagas después.";
+
+      resultsScoreEl.innerHTML = `Tu nivel actual: <span>${percentage}%</span>`;
+
+      resultsCtaEl.innerHTML = "";
+      let message = "";
+      let badgeHtml = "";
+      let ctaHtml = "";
+
+      if (percentage <= 40) {
+        message =
+          "Tu e‑commerce está operando con un nivel de riesgo <span class='risk-highlight'>alto</span> en Incoterms, aduanas y logística. Es muy probable que estés asumiendo costes ocultos, bloqueos de mercancía o reclamaciones de clientes que podrían evitarse con una estructura clara.";
+        badgeHtml = `
+          <div class="results-badge">
+            <span class="risk"></span>
+            <span>Riesgo elevado · Recomendamos consultoría prioritaria</span>
+          </div>
+        `;
+        ctaHtml = `
+          <strong>Recomendación:</strong>
+          <span>
+            Agenda una consultoría estratégica donde revisemos tus Incoterms, tu operativa aduanera y tu logística internacional.
+            En una sola sesión podemos detectar los puntos críticos y diseñar un plan de acción.
+          </span>
+          <small>
+            Cuanto más volumen internacional tengas, más caro puede salir seguir operando con este nivel de riesgo.
+          </small>
+        `;
+      } else if (percentage <= 70) {
+        message =
+          "Tu nivel es <span class='neutral-highlight'>intermedio</span>: tienes cierta estructura, pero todavía hay zonas grises que pueden generar costes inesperados, retrasos o fricción con tus clientes internacionales.";
+        badgeHtml = `
+          <div class="results-badge">
+            <span class="risk"></span>
+            <span>Riesgo medio · Oportunidad de optimización</span>
+          </div>
+        `;
+        ctaHtml = `
+          <strong>Recomendación:</strong>
+          <span>
+            Una consultoría puntual puede ayudarte a pasar de un enfoque reactivo a uno estratégico: Incoterms alineados con tu
+            modelo, protocolos claros y una logística internacional optimizada para tu e‑commerce.
+          </span>
+          <small>
+            Estás en un buen punto para profesionalizar tu operativa antes de escalar a nuevos mercados.
+          </small>
+        `;
+      } else {
+        message =
+          "Tu nivel es <span class='success-highlight'>avanzado</span>. Tienes una buena base en Incoterms, aduanas y logística internacional. Aun así, siempre hay margen para afinar detalles y proteger mejor tu margen y tu experiencia de cliente.";
+        badgeHtml = `
+          <div class="results-badge">
+            <span class="ok"></span>
+            <span>Buen nivel · Optimización fina y escalado</span>
+          </div>
+        `;
+        ctaHtml = `
+          <strong>Recomendación:</strong>
+          <span>
+            Podemos trabajar en una sesión avanzada para revisar escenarios específicos (nuevos mercados, marketplaces,
+            cambios normativos) y asegurarnos de que tu estructura aguanta el crecimiento.
+          </span>
+          <small>
+            Estás por delante de muchos e‑commerce, pero el entorno regulatorio cambia rápido.
+          </small>
+        `;
+      }
+
+      resultsMessageEl.innerHTML = message + badgeHtml;
+      resultsCtaEl.innerHTML = ctaHtml;
+    }
+
+    function handleNext() {
+      if (selectedOptionIndex === null) {
+        alert("Selecciona una respuesta antes de continuar.");
+        return;
+      }
+
+      const currentQuestion = questions[currentQuestionIndex];
+      const selectedScore = currentQuestion.options[selectedOptionIndex].score;
+      scores[currentQuestionIndex] = selectedScore;
+
+      if (currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
+        renderQuestion();
+      } else {
+        showResults();
+      }
+    }
+
+    function restartQuiz() {
+      currentQuestionIndex = 0;
+      selectedOptionIndex = null;
+      scores = [];
+      quizContentEl.style.display = "block";
+      resultsSectionEl.style.display = "none";
+      restartBtn.style.display = "none";
+      nextBtn.style.display = "inline-flex";
+      renderQuestion();
+    }
+
+    // --- Eventos ---
+    nextBtn.addEventListener("click", handleNext);
+    restartBtn.addEventListener("click", restartQuiz);
+
+    // --- Inicio ---
+    renderQuestion();
+  </script>
+</body>
+</html>
